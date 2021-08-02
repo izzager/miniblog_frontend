@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miniblog | Create post</title>
+    <link href="/styles/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="menu">
+    <ul class="main-menu">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/latestPosts">Latest posts</a></li>
+        <li><a href="/feed">Feed</a></li>
+        <li><a href="/users">Users</a></li>
+        <li class="menu-children"><a href="/myProfile">My profile</a>
+            <ul>
+                <li><a href="/myPosts">My posts</a></li>
+                <li><a href="/achievements">Achievements</a></li>
+                <li><a href="/subscriptions">My subscriptions</a></li>
+            </ul>
+        </li>
+        <li><a href="/logout">Sign Out</a></li>
+    </ul>
+</div>
+
+<div class="allcontent">
+    <div class="content">
+            <h2>Add a new post</h2>
+            <div class="group btmspace-50 demo">
+                <div class="post" style="padding-left: 20px">
+                    {{#postForm}}
+                        <form name="postForm" action="/createPost" method="post">
+                            <label>Text: <input type="text" name="text" value = "{{text}}" style="color:black;"></label>
+                            <div><input class="btn" type="submit" value="Add this post"/></div>
+                        </form>
+                    {{/postForm}}
+                </div>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>

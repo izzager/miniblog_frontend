@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miniblog | Subscriptions</title>
+    <link href="/styles/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="menu">
+    <ul class="main-menu">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/latestPosts">Latest posts</a></li>
+        <li><a href="/feed">Feed</a></li>
+        <li><a href="/users">Users</a></li>
+        <li class="menu-children"><a href="/myProfile">My profile</a>
+            <ul>
+                <li><a href="/myPosts">My posts</a></li>
+                <li><a href="/achievements">Achievements</a></li>
+                <li><a href="/subscriptions">My subscriptions</a></li>
+            </ul>
+        </li>
+        <li><a href="/logout">Sign Out</a></li>
+    </ul>
+</div>
+
+<div class="allcontent">
+    <div class="content">
+            <h1>My subscriptions</h1>
+            {{#subscriptions}}
+                <div class="group btmspace-50 demo">
+                    <div class="user">
+                        <form name="userForm" action="/unsubscribe" method="post">
+                            <h2>User #{{id}}. Nickname: #{{nickname}}</h2>
+                            <div><input class="btn" type="submit" value="Unsubscribe"/></div>
+                            <input type="hidden" name="id" value = "{{id}}">
+                        </form>
+                    </div>
+                </div>
+            {{/subscriptions}}
+    </div>
+</div>
+</body>
+</html>

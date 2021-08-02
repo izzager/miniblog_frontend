@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miniblog | Registration</title>
+    <link href="/styles/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+<div class="menu">
+    <ul class="main-menu">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/latestPosts">Latest posts</a></li>
+        {{^isUserAuthorize}}
+            <li><a href="/login">Sign in</a></li>
+        {{/isUserAuthorize}}
+        {{#isUserAuthorize}}
+            <li><a href="/feed">Feed</a></li>
+            <li><a href="/users">Users</a></li>
+            <li class="menu-children"><a href="/myProfile">My profile</a>
+                <ul>
+                    <li><a href="/myPosts">My posts</a></li>
+                    <li><a href="/achievements">Achievements</a></li>
+                    <li><a href="/subscriptions">My subscriptions</a></li>
+                </ul>
+            </li>
+            <li><a href="/logout">Sign Out</a></li>
+        {{/isUserAuthorize}}
+    </ul>
+</div>
+
+<div class="allcontent">
+    <div class="content">
+        <div>{{#usernameError}}The user with this username already exists{{/usernameError}}</div>
+        <div>{{#error}}Error occurred. Try again later.{{/error}}</div>
+        <form name="userDataDto" action="/register" method="post">
+            <div><label> Nickname: <input type="text" name="nickname"/> </label></div>
+            <div><label> Username: <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Register"/></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0eaf3;
+}
+
+h1 {
+    text-align: center;
+}
+
+.main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.main-menu > li {
+    display: inline-flex;
+}
+.main-menu > li + li {
+    margin-left: 20px;
+}
+.main-menu > li > a {
+    padding: 0 0 20px 0;
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    font-size: 15px;
+    text-decoration: none;
+}
+.main-menu > li > a:hover {
+    text-decoration: none;
+    color: #8433b7;
+}
+.main-menu > li > a:after {
+    width: 0;
+    height: 3px;
+    background-color: #7933b7;
+    content: '';
+    left: 0;
+    bottom: 10px;
+    position: absolute;
+    transition: all .3s;
+}
+.main-menu > li > a:hover::after {
+    width: 100%;
+}
+.main-menu > li.active a:after {
+    width: 100%;
+}
+.main-menu li {
+    margin: 0;
+    white-space: nowrap;
+}
+.main-menu li.menu-children {
+    position: relative;
+    margin-right: 12px;
+}
+.main-menu li.menu-children:after {
+    position: absolute;
+    content: "\2039";
+    color: #6133b7;
+    font-size: 20px;
+    font-weight: bold;
+    right: -12px;
+    top: -2px;
+    transform: rotate(-90deg);
+}
+.main-menu li li.menu-children:after {
+    position: absolute;
+    content: "\2039";
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    right: 10px;
+    top: 12px;
+    transform: rotate(180deg);
+}
+.main-menu li.menu-children:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.main-menu ul {
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    background-color: #5633b7;
+    position: absolute;
+    z-index: 20;
+    min-width: 220px;
+    top: 100%;
+    left: -30px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: all 200ms cubic-bezier(0.43, 0.59, 0.16, 1.25);
+}
+.main-menu ul li {
+    display: block;
+    padding: 0 10px;
+    line-height: 1.1;
+}
+.main-menu ul li:last-child {
+    margin-bottom: 0;
+}
+.main-menu ul li a {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    transition: all .3s;
+    text-decoration: none;
+}
+.main-menu ul li a:hover {
+    color: #5033b7;
+    background: #FFF;
+    text-decoration: none;
+}
+.main-menu ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.menu {
+    padding: 15px;
+}
+
+.content {
+    margin: 5%;
+    padding: 5%;
+    background-color: #ffffff;
+}
+
+.post {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #716f79;
+}
+
+.comment {
+    margin: 10px;
+    border-bottom: 1px solid #8d8994;
+}
+
+.comment-details {
+    padding: 10px;
+    border-left:1px solid #aaa7b1;
+}
+
+.commentForm {
+    display: inline-flex;
+}
+
+.userForm {
+    padding: 10px;
+    border-left:1px solid #aaa7b1;
+}
+
+#loginContent .login-wr {
+    position: relative;
+    margin: 0 auto;
+    max-width: 270px;
+    padding: 0 15px 0 15px;
+}
+
+#loginContent h2 {
+    font-weight: 200;
+    font-size: 1.6em;
+    margin: 0;
+    padding: 0;
+    color: #3c3c3c;
+}
+
+#loginContent .form {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#loginContent input[type="text"],
+#loginContent input[type="password"],
+#loginContent button {
+    margin-bottom: 25px;
+    height: 40px;
+    outline: 0;
+    -moz-outline-style: none;
+}
+
+#loginContent input[type="text"],
+#loginContent input[type="password"] {
+    width: calc(80%);
+    border: none;
+    border-bottom: 1px solid #666666;
+    padding: 0 0 0 0px;
+    font-size: 14px;
+}
+
+#loginContent input[type="text"]:focus,
+#loginContent input[type="password"]:focus {
+    border-bottom: 1px solid #393838;
+    color: #2a2a2b;
+}
+
+#loginContent a {
+    text-align: center;
+    font-size: 20px;
+    color: #373636;
+}
+
+#loginContent a:hover {
+    text-align: center;
+    font-size: 20px;
+    color: #8433b7;
+}
+
+#loginContent p{
+    padding-bottom: 10px;
+}
+
+.loginButton {
+    width: 80%;
+    background: none;
+    border:none;
+    border: 1px solid #434141;
+    color: #606060;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: box-shadow .4s ease;
+}
+
+.loginButton:hover {
+    text-decoration: none;
+    background: #8433b7;
+    color: #FFF;
+}

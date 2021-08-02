@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miniblog | Latest posts</title>
+    <link href="/styles/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="menu">
+    <ul class="main-menu">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/latestPosts">Latest posts</a></li>
+        {{^isUserAuthorize}}
+            <li><a href="/login">Sign in</a></li>
+        {{/isUserAuthorize}}
+        {{#isUserAuthorize}}
+            <li><a href="/feed">Feed</a></li>
+            <li><a href="/users">Users</a></li>
+            <li class="menu-children"><a href="/myProfile">My profile</a>
+                <ul>
+                    <li><a href="/myPosts">My posts</a></li>
+                    <li><a href="/achievements">Achievements</a></li>
+                    <li><a href="/subscriptions">My subscriptions</a></li>
+                </ul>
+            </li>
+            <li><a href="/logout">Sign Out</a></li>
+        {{/isUserAuthorize}}
+    </ul>
+</div>
+
+<div class="allcontent">
+    <div class="content">
+            <h1>Latest posts</h1>
+            {{#posts}}
+                <div class="post-content">
+                    <div class="post">
+                        <h3>Post #{{id}} from {{userNickname}} {{publicationDate}}</h3>
+                        <p>{{text}}</p>
+                        <details class="comment-details">
+                            <summary>See comments</summary>
+                            {{#comments}}
+                                <div class="comment">
+                                    <h4>Comment #{{id}} from {{userNickname}} {{publicationDate}}</h4>
+                                    <p>{{text}}</p>
+                                </div>
+                            {{/comments}}
+                        </details>
+                        <form class="commentForm" name="commentForm" action="/createComment" method="post">
+                            <input type="hidden" name="postId" value = "{{id}}">
+                            <label><input type="text" name="text" value = "" style="color:black;"></label>
+                            <div><input class="btn" type="submit" value="Create comment"/></div>
+                        </form>
+                    </div>
+                </div>
+            {{/posts}}
+    </div>
+</div>
+</body>
+</html>
