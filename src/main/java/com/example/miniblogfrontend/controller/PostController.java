@@ -98,7 +98,6 @@ public class PostController {
     @PostMapping("/deleteComment")
     public String deleteComment(@ModelAttribute FullCommentDto commentForm) {
         try {
-            System.out.println(commentForm.getId() + " " + commentForm.getPostId());
             ResponseEntity<Void> response = restTemplate
                     .exchange("http://localhost:9191/posts/" + commentForm.getPostId() + "/comments/" + commentForm.getId(),
                             HttpMethod.DELETE,
